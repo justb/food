@@ -12,7 +12,7 @@ module.exports = function (router) {
 
 
     router.post('/', function (req, res) {
-            userService().useRegister(req.body.name,req.body.sex,req.body.age,req.body.location,req.body.phone, req.body.password, function(err, results) {
+            userService().useRegister(req.body.username,req.body.sex,req.body.userid,req.body.phone, req.body.password, function(err, results) {
             if (err) {
                     return res.json(err);
                 }

@@ -115,10 +115,9 @@ angular.module('supplier-service',[])
                 method:'post',
                 url:'/index/register',
                 data: {
-                    "name":user.name,
-                    "sex":user.sex,
-                    "age":user.age,
-                    "location":user.location,
+                    "username":user.username,
+                    "sex":user.sex.name,
+                    "userid":user.userid,
                     "phone": user.phone,
                     "password":user.password
                 }
