@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="suppliers">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Restaurant</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<!-- NAVBAR
+================================================== -->
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid" style="">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">欢迎点餐</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-toggle="modal" data-target="#myOrder">我的订单</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div ui-view class="row">
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+		<div class="modal fade" id="myOrder" tabindex="-1" role="dialog"
+		 aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close"
+							data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						Select Specifications
+					</h4>
+				</div>
+				<div class="modal-body" ng-repeat="s in standards">
+					123
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default"
+							data-dismiss="modal">Close
+					</button>
+					<a id="selection" role="button" class="btn btn-primary" href="" onclick="modalhide()" ng-click="addtocart(selectgoods.id,selectgoods.name,selectgoods.price,selectgoods.standard)">
+						Confirm
+					</a>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="admin/bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+    <script src="admin/bower_components/jquery/jquery.js"></script>
+    <script src="admin/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="admin/bower_components/underscore/underscore.js"></script>
+    <script src="admin/bower_components/moment/moment.js"></script>
+    <script src="admin/bower_components/angular/angular.js"></script>
+    <script src="admin/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="admin/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="admin/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="admin/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="admin/bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="admin/acx-angular.js"></script>
+
+    <script src="supplier-service.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/index.js"></script>
+    <script src="controllers/detail.js"></script>
+    <script src="controllers/login.js"></script>
+    <script src="controllers/register.js"></script>
+    <script src="controllers/order.js"></script>
+    <script src="controllers/logout.js"></script>
+    <script type="text/javascript">
+
+</script>
+</body>
+
+</html>

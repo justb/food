@@ -1,0 +1,28 @@
+<!-- categories/index.html -->
+<!-- left panel-->
+<div ui-view class="col-md-12">
+    <div ng-controller="CategoryIndexCtrl">
+        <div class="input-group vmargin-bottom">
+            <span class="input-group-addon" ui-sref="categories.create">Create</span>
+            <input type="text" ng-model="querykey" class="form-control" placeholder="Name" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="doQuery()">Search</span>
+        </div>
+        <table data-toggle="table" class="table table-bordered">
+            <tr ng-repeat="category in categories">
+                <!--<a class="btn" ui-sref="categories.detail({id:category.id})">{{category.name}}</a>-->
+                <td>{{category.name}}</td>
+                <td>{{category.supplier_name}}</td>
+                <td><button class="btn btn-default" ui-sref="categories.edit({id:category.id})">Edit</button></td>
+                <td><button class="btn btn-default" ng-click="doDelete(category.id)">Delete</button></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- category detail-->
+<!-- <div ui-view class="col-md-12 closed">
+
+</div> -->
+
+
+</div>

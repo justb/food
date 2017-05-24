@@ -1,0 +1,27 @@
+<form ng-controller="registerCtrl">
+    <div class="form-group">
+        <label for="nameInput">User Name: </label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Enter User name" ng-model="user.name">
+    </div>
+    <div class="form-group">
+        <label for="locationText">User Sex:</label>
+        <input class="form-control" id="locationText" ng-model="user.sex" placeholder="Enter User Sex">
+    </div>
+    <div class="form-group">
+        <label for="phoneText">User Age:</label>
+        <input class="form-control" id="phoneText" ng-model="user.age" placeholder="Enter User Age">
+    </div>
+    <div class="form-group">
+        <label for="nameInput">User Location: </label>
+        <input type="text" class="form-control"  placeholder="Enter User Location" ng-model="user.location">
+    </div>
+    <div class="form-group">
+        <label for="locationText">User Phone:</label>
+        <input class="form-control"  ng-model="user.phone" placeholder="Enter User Phone">
+    </div>
+    <div class="form-group">
+        <label for="phoneText">User Password:</label>
+        <input class="form-control"  ng-model="user.password" placeholder="Enter User Password">
+    </div>
+    <button class="btn btn-default" ng-click="doRegister()">Register</button>
+</form>

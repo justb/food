@@ -1,0 +1,22 @@
+<div class="panel panel-info">
+  <div >
+    <!-- actions-->
+    <!-- Single button -->
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Action <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a ui-sref="suppliers.edit({id:supplier.id})">Edit</a></li>
+        <li><a ng-click="doDelete()">Delete</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel-body">
+
+      <h3>{{supplier.name}}</h3>
+      <p>{{supplier.location}}</p>
+        <p>{{supplier.phone}}</p>
+
+  </div>
+</div>

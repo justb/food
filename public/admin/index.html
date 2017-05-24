@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="suppliers">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!--<link href="app.less" type="text/css" rel="stylesheet/less"> -->
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+<div>
+    <!-- Add New Component JS Above -->
+    <div id="content" class="container">
+        <!-- navigation-->
+        <div class="row">
+            <div class="col-md-16 column">
+                <nav class="navbar navbar-default navbar-inverse">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand"  href="#/suppliers">Supplier</a>
+                            <a class="navbar-brand"  href="#/categories">Category</a>
+                            <a class="navbar-brand"  href="#/goods">Goods</a>
+                            <a class="navbar-brand"  href="#/orders">Order</a>
+                            <a class="navbar-brand"  href="#/users">User</a>
+                            <a class="navbar-brand"  onclick="back()">Home</a>
+
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <hr>
+        <div ui-view class="row">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Livereload script for development only (stripped during dist build) -->
+<!--<script src="http://localhost:35729/livereload.js" data-concat="false"></script> -->
+
+<!-- JS from Bower Components -->
+<script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+<script src="acx-angular.js"></script>
+<!-- Add New Bower Component JS Above  -->
+
+<!-- Main App JS -->
+<script src="suppliers/suppliers-service.js"></script>
+<script src="categories/categories-service.js"></script>
+<script src="goods/goods-service.js"></script>
+<script src="users/users-service.js"></script>
+<script src="orders/orders-service.js"></script>
+<script src="app.js"></script>
+<script src="js/controllers/supplier-create.js"></script>
+<script src="js/controllers/supplier-edit.js"></script>
+<script src="js/controllers/supplier-index.js"></script>
+<script src="js/controllers/category-create.js"></script>
+<script src="js/controllers/category-edit.js"></script>
+<script src="js/controllers/category-index.js"></script>
+<script src="js/controllers/good-create.js"></script>
+<script src="js/controllers/good-edit.js"></script>
+<script src="js/controllers/good-index.js"></script>
+<script src="js/controllers/user-create.js"></script>
+<script src="js/controllers/user-edit.js"></script>
+<script src="js/controllers/user-index.js"></script>
+<script src="js/controllers/order-index.js"></script>
+<script src="js/controllers/back.js"></script>
+</body>
+</html>

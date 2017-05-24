@@ -1,0 +1,22 @@
+<div ui-view>
+    <div ng-controller="orderCtrl">
+        <table data-toggle="table" class="table table-bordered">
+            <tr ng-repeat="order in orders" ng-switch={{order.state}}>
+                <!--<a class="btn" ui-sref="orders.detail({id:order.id})">{{order.name}}</a>-->
+                <td>{{order.createdate}}</td>
+                <td>{{order.supplier_name}}</td>
+                <td>{{order.good_name}}</td>
+                <td>{{order.good_price}}</td>
+                <td>{{order.good_num}}</td>
+                <td>{{order.totalprice}}</td>
+                <!--<td><button class="btn btn-default" ui-sref="orders.edit({id:order.id})">Edit</button></td>-->
+                <td ng-switch-when=0><button class="btn btn-default" ng-click="doCancel(order.id)">Cancel</button></td>
+                <td ng-switch-when=1><span>Approvaled</span></td>
+                <td ng-switch-when=2><span>Rejected</span></td>
+
+            </tr>
+        </table>
+
+
+    </div>
+</div>

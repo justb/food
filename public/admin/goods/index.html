@@ -1,0 +1,31 @@
+<!-- goods/index.html -->
+<!-- left panel-->
+<div ui-view class="col-md-12">
+    <div ng-controller="GoodIndexCtrl">
+        <div class="input-group vmargin-bottom">
+            <span class="input-group-addon" ui-sref="goods.create">Create</span>
+            <input type="text" ng-model="querykey" class="form-control" placeholder="Name" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="doQuery()">Search</span>
+        </div>
+        <table data-toggle="table" class="table table-bordered">
+            <tr ng-repeat="good in goods">
+                <!--<a class="btn" ui-sref="goods.detail({id:good.id})">{{good.name}}</a>-->
+                <td>{{good.name}}</td>
+                <td>{{good.price}}</td>
+                <td>{{good.standard}}</td>
+                <td>{{good.introduction}}</td>
+                <td>{{good.category_name}}</td>
+                <td><button class="btn btn-default" ui-sref="goods.edit({id:good.id})">Edit</button></td>
+                <td><button class="btn btn-default" ng-click="doDelete(good.id)">Delete</button></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- good detail-->
+<!-- <div ui-view class="col-md-12 closed">
+
+</div> -->
+
+
+</div>

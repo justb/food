@@ -1,0 +1,24 @@
+<form ng-controller="GoodCreateCtrl">
+    <div class="form-group">
+        <label >Good Name: </label>
+        <input type="text" ng-model="name" class="form-control"  placeholder="name" >
+    </div>
+    <div class="form-group">
+        <label >Good Price: </label>
+        <input type="text" ng-model="price" class="form-control"  placeholder="name" >
+    </div>
+    <div class="form-group">
+        <label >Good Standard: </label>
+        <input type="text" ng-model="standard" class="form-control"  placeholder="name" >
+    </div>
+    <div class="form-group">
+        <label >Good Introduction: </label>
+        <input type="text" ng-model="introduction" class="form-control"  placeholder="name" >
+    </div>
+    <div class="form-group">
+        <label >Good Category:</label>
+        <select class="form-control" ng-model="categories.id" ng-options="x.name for x in categories"></select>
+    </div>
+    <button class="btn btn-default" ng-click="doAdd()">Create</button>
+</form>
+

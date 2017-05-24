@@ -1,0 +1,15 @@
+<form ng-controller="SupplierEditCtrl">
+    <div class="form-group">
+        <label for="nameInput">Supplier Name: </label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Enter Supplier name" ng-model="supplier.name">
+    </div>
+    <div class="form-group">
+        <label for="locationText">Supplier Location:</label>
+        <input class="form-control" id="locationText" ng-model="supplier.location" placeholder="Enter Supplier Location">
+    </div>
+    <div class="form-group">
+        <label for="phoneText">Supplier Phone:</label>
+        <input class="form-control" id="phoneText" ng-model="supplier.phone" placeholder="Enter Supplier Phone">
+    </div>
+    <button class="btn btn-default" ng-click="doEdit()">Update</button>
+</form>

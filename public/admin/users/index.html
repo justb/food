@@ -1,0 +1,25 @@
+<!-- users/index.html -->
+<!-- left panel-->
+<div ui-view class="col-md-12">
+    <div ng-controller="UserIndexCtrl">
+        <div class="input-group vmargin-bottom">
+            <span class="input-group-addon" ui-sref="users.create">Create</span>
+            <input type="text" ng-model="queryKey" class="form-control" placeholder="Name" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="doQuery()">Search</span>
+        </div>
+        <table data-toggle="table" class="table table-bordered">
+            <tr ng-repeat="user in users">
+                <!--<a class="btn" ui-sref="users.detail({id:user.id})">{{user.name}}</a>-->
+                <td>{{user.name}}</td>
+                <td>{{user.location}}</td>
+                <td>{{user.phone}}</td>
+                <td><button class="btn btn-default" ui-sref="users.edit({id:user.id})">Edit</button></td>
+                <td><button class="btn btn-default" ng-click="doDelete(user.id)">Delete</button></td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</div>

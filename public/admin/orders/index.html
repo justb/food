@@ -1,0 +1,51 @@
+<!-- orders/index.html -->
+<!-- left panel-->
+
+    <div ng-controller="OrderIndexCtrl">
+        <div class="input-group vmargin-bottom">
+            <!--<span class="input-group-addon" ui-sref="orders.create">Create</span>-->
+            <input type="text" ng-model="queryKey" class="form-control" placeholder="Name" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="doQuery()">Search</span>
+        </div>
+        <table data-toggle="table" class="table table-bordered">
+            <tr>
+                <th>Check All<input id="checkall" type="checkbox" /></th>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Supplier</th>
+                <th>Goods</th>
+                <th>Price</th>
+                <th>Number</th>
+                <th>Totalprice</th>
+                <th><button class="btn btn-default" ng-click="approvalall()">Approval</button></th>
+            </tr>
+            <tr ng-repeat="order in orders" ng-switch={{order.state}}>
+                <!--<a class="btn" ui-sref="orders.detail({id:order.id})">{{order.name}}</a>-->
+                <td><input data-id={{order.id}} type="checkbox" class="checkbox" /></td>
+                <td>{{order.createdate}}</td>
+                <td>{{order.user_name}}</td>
+                <td>{{order.supplier_name}}</td>
+                <td>{{order.good_name}}</td>
+                <td>{{order.good_price}}</td>
+                <td>{{order.good_num}}</td>
+                <td>{{order.totalprice}}</td>
+                <!--<td><button class="btn btn-default" ui-sref="orders.edit({id:order.id})">Edit</button></td>-->
+                <td ng-switch-when=0><button class="btn btn-default" id={{order.id}} ng-click="approval(order.id)">Approval</button>
+                <button class="btn btn-default" id={{order.id+0}} ng-click="reject(order.id)">Reject</button></td>
+                <td ng-switch-when=1><span>Approvaled</span></td>
+                <td ng-switch-when=2><span>Rejected</span></td>
+
+            </tr>
+        </table>
+        <ul ng-if="totalPageCount>0" class="pagination pagination-lg">
+            <li><a href="" ng-click='firstPage()'>first</a></li>
+            <li><a href="" ng-click='previousPage()'>prev</a></li>
+            <li ng-repeat="pagenum in pagenums"><a href="" ng-click='pageChange(pagenum)'>{{pagenum+1}}</a></li>
+            <li><a href="" ng-click='nextPage()'>next</a></li>
+            <li><a href="" ng-click='lastPage()'>last</a></li>
+        </ul>
+    </div>
+
+</div>
+
+

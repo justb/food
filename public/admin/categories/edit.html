@@ -1,0 +1,11 @@
+<form ng-controller="CategoryEditCtrl">
+    <div class="form-group">
+        <label for="nameInput">Category Name: </label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Enter Category name" ng-model="category.name">
+    </div>
+    <div class="form-group">
+        <label>Category Supplier:</label>
+        <select class="form-control" ng-model="suppliers.id" ng-options="x.name for x in suppliers"></select>
+    </div>
+    <button class="btn btn-default" ng-click="doEdit()">Update</button>
+</form>

@@ -1,0 +1,45 @@
+
+<div ng-controller="supplierCtrl">
+            <ul class="col-xs-3 list-group">
+              <li class="list-group-item" ng-repeat="kind in kinds" ng-click="changeKind(kind.id)"><a>{{kind.name}}</a></li>
+            </ul>
+            <ul class="col-xs-9  list-group">
+              <li class="list-group-item" ng-repeat="g in categroys" ng-if="g.kind==currentKind">
+
+                    <div >
+                        <div class="col-xs-4"><img class="img-responsive carousel-inner" src="../img/2.jpg"/></div>
+                        <div class="col-xs-8">
+                        <ul>
+                        <li>{{g.menuname}}</li>
+                        <li>{{g.price}}</li>
+                        <li>{{g.introduce}}</li>
+                        </ul>
+                        </div>
+                        <button class="btn btn-default" ng-click="addtocart(g.menuid,g.menuname,g.price)">Add To Cart</button>
+                    </div>
+
+
+              </li>
+            </ul> 
+
+		<div style="position:fixed;width:100%;bottom:0;right:0;">
+
+        <div class="collapse" id="collapseExample" >
+        <div style="border-top: 2px solid #0089dc;background-color:#fff;">
+           <div ng-repeat="o in order">
+                {{o.name}}
+                <button class="btn btn-default" ng-click="minus(o)">-</button>
+                {{o.number}}
+                <button class="btn btn-default" ng-click="plus(o)">+</button>
+                {{o.totalprice}}
+            </div>
+        </div>
+        </div>
+        <div style="border-top: 2px solid #0089dc;height:36px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <label style="position:absolute;bottom:-4px;">total price:</label>
+                <span style="position:absolute;bottom:0px;left:100px;">{{totalprice}}</span>
+            <button ng-click="submitorder()" class="btn btn-default" style="position:absolute;bottom:0px;right:0px;">Submit order</button>
+        </div>
+        </div>
+
+</div>

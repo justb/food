@@ -1,0 +1,70 @@
+<div ui-view>
+    <div ng-controller="detailCtrl">
+        <div class="row" id="categorymenu" style="z-index: 100;background: white;width: 75%;">
+            <div class="col-lg-1" ng-repeat="category in categories">
+                <a ng-click="move(category.id)" role='button' class="btn btn-default"><span>{{category.name}}</span></a>
+            </div><!-- /.col-lg-4 -->
+        </div>
+        <div class="col-lg-12" ng-repeat="category in categories">
+        </br>
+        <hr id={{category.id}} >
+        </br>
+            <h2>{{category.name}}</h2>
+            <div  ng-repeat="good in goods">
+             <div  class="row">
+                <div class="col-lg-3" ng-repeat="g in good" ng-if="g.category_id==category.id">
+                    <div><img class="img-responsive carousel-inner" src="../img/2.jpg"/></div>
+                    <div>
+                    {{g.name}}
+                    {{g.price}}
+                    {{g.standard}}
+                    </div>
+                    <button ng-if="!g.standard" class="btn btn-default" ng-click="addtocart(g.id,g.name,g.price)">Add To Cart</button>
+                    <button ng-if="g.standard" class="btn btn-default" ng-click="select(g.id,g.name,g.price,g.standard)">Select Specifications</button>
+                </div>
+             </div>
+            </div>
+        </div>
+        <div id="cart" style="width: 300px;border-top: 2px solid #0089dc; position: fixed;bottom: 0px;right:0px;background:white;padding: 20px; padding-bottom: 40px;">
+            <div ng-repeat="o in order">
+                {{o.name}}
+                <button class="btn btn-default" ng-click="minus(o)">-</button>
+                {{o.number}}
+                <button class="btn btn-default" ng-click="plus(o)">+</button>
+                {{o.totalprice}}
+            </div>
+            <div>
+                <label style="position:absolute;bottom:-4px;">total price:</label>
+                <span style="position:absolute;bottom:0px;left:100px;">{{totalprice}}</span>
+            <button ng-click="submitorder()" class="btn btn-default" style="position:absolute;bottom:0px;right:0px;">Submit order</button>
+            </div>
+        </div>
+        <div class="modal fade" id="select_Modal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Select Specifications
+                        </h4>
+                    </div>
+                    <div class="modal-body" ng-repeat="s in standards">
+                        <input type="radio" value="{{s}}" ng-model='selectgoods.standard' name="standard" >{{s}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">Close
+                        </button>
+                        <a id="selection" role="button" class="btn btn-primary" href="" onclick="modalhide()" ng-click="addtocart(selectgoods.id,selectgoods.name,selectgoods.price,selectgoods.standard)">
+                            Confirm
+                        </a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+</div>

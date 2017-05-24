@@ -1,0 +1,25 @@
+<!-- suppliers/index.html -->
+<!-- left panel-->
+<div ui-view class="col-md-12">
+    <div ng-controller="SupplierIndexCtrl">
+        <div class="input-group vmargin-bottom">
+            <span class="input-group-addon" ui-sref="suppliers.create">Create</span>
+            <input type="text" ng-model="queryKey" class="form-control" placeholder="Name" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2" ng-click="doQuery()">Search</span>
+        </div>
+        <table data-toggle="table" class="table table-bordered">
+            <tr ng-repeat="supplier in suppliers">
+                <!--<a class="btn" ui-sref="suppliers.detail({id:supplier.id})">{{supplier.name}}</a>-->
+                <td>{{supplier.name}}</td>
+                <td>{{supplier.location}}</td>
+                <td>{{supplier.phone}}</td>
+                <td><button class="btn btn-default" ui-sref="suppliers.edit({id:supplier.id})">Edit</button></td>
+                <td><button class="btn btn-default" ng-click="doDelete(supplier.id)">Delete</button></td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</div>
