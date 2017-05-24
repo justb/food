@@ -147,10 +147,11 @@ ul li{
   border-top: 1px solid #eeeeee;
   padding: 20px 0;
   clear: both;
+  overflow:hidden;
 }
 
-.kind{
-
+.left{
+  position: fixed;
 }
 
 .right{
@@ -170,6 +171,10 @@ ul li{
 .cart .food-list{
   border-top: 2px solid #eeeeee;background-color:#fff;
   padding: 15px 30px;
+}
+
+.cart .food-list .row{
+  line-height: 34px;
 }
 
 .cart .total{
