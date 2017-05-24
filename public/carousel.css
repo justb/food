@@ -135,3 +135,20 @@ body {
     margin-top: 120px;
   }
 }
+
+ul li{
+  list-style: none;
+}
+
+.p0{
+  padding:0;
+}
+.food{
+  border-top: 1px solid #eeeeee;
+  
+  clear: both;
+}
+
+.kind{
+
+}

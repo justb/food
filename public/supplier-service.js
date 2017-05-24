@@ -3,7 +3,7 @@ angular.module('supplier-service',[])
         var suppliers=function (callback) {
             $http({
                 method:'get',
-                url:'http://120.24.239.232:8000/admin/supplier'
+                url:'/admin/supplier'
             }).success(function (data) {
                 return callback(null,data);
             }).error(function (data) {
@@ -18,7 +18,7 @@ angular.module('supplier-service',[])
         var categories=function (id,callback) {
             $http({
                 method:'get',
-                url:'http://120.24.239.232:8000/index/detail/'+id
+                url:'/index/detail/'+id
             }).success(function (data) {
                 return callback(null,data);
             }).error(function (data) {
@@ -33,7 +33,7 @@ angular.module('supplier-service',[])
         var getGoodsByCategroy=function (category_id,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/detail',
+                url:'/index/detail',
                 data: {
 
                     "category_id": category_id
@@ -48,7 +48,7 @@ angular.module('supplier-service',[])
          var loadGoods=function (callback) {
             $http({
                 method:'get',
-                url:'http://120.24.239.232:8000/index/detail',
+                url:'/index/detail',
             }).success(function (data) {
                 return callback(null,data);
             }).error(function (data) {
@@ -59,7 +59,7 @@ angular.module('supplier-service',[])
         var getNameById=function (supplier_id,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/detail/get',
+                url:'/index/detail/get',
                 data: {
 
                     "supplier_id": supplier_id
@@ -73,7 +73,7 @@ angular.module('supplier-service',[])
         var getOrderByUserId=function (user_id,callback) {
             $http({
                 method:'get',
-                url:'http://120.24.239.232:8000/index/order/'+user_id,
+                url:'/index/order/'+user_id,
 
             }).success(function (data) {
                 return callback(null,data);
@@ -85,7 +85,7 @@ angular.module('supplier-service',[])
         var cancelOrderById=function (id,callback) {
             $http({
                 method:'delete',
-                url:'http://120.24.239.232:8000/index/order/cancel/'+id,
+                url:'/index/order/cancel/'+id,
 
             }).success(function (data) {
                 return callback(null,data);
@@ -97,7 +97,7 @@ angular.module('supplier-service',[])
         var userLogin=function (phone,password,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/login',
+                url:'/index/login',
                 data: {
 
                     "phone": phone,
@@ -113,7 +113,7 @@ angular.module('supplier-service',[])
         var userRegister=function (user,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/register',
+                url:'/index/register',
                 data: {
                     "name":user.name,
                     "sex":user.sex,
@@ -132,7 +132,7 @@ angular.module('supplier-service',[])
         var orderSubmit2=function (order,totalprice,createdate,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/order/insert',
+                url:'/index/order/insert',
                 data: {
                     order:order,
                     'totalprice':totalprice,
@@ -147,7 +147,7 @@ angular.module('supplier-service',[])
         var orderSubmit=function (user_id, user_name, supplier_id,supplier_name, good_id,good_name, good_num,good_price, totalprice,createdate,callback) {
             $http({
                 method:'post',
-                url:'http://120.24.239.232:8000/index/order/add',
+                url:'/index/order/add',
                 data: {
                     'user_id':user_id,
                     'user_name':user_name,

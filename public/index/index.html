@@ -1,26 +1,28 @@
 
 <div ng-controller="supplierCtrl">
-            <ul class="col-xs-3 list-group">
-              <li class="list-group-item" ng-repeat="kind in kinds" ng-click="changeKind(kind.id)"><a>{{kind.name}}</a></li>
-            </ul>
-            <ul class="col-xs-9  list-group">
-              <li class="list-group-item" ng-repeat="g in categroys" ng-if="g.kind==currentKind">
+            <div class="col-xs-3 p0">
+              <a class="list-group-item text-center" ng-repeat="kind in kinds" ng-click="changeKind(kind.id)">{{kind.name}}</a>
+            </div>
+            <div class="col-xs-9">
+              <div  ng-repeat="g in categroys" ng-if="g.kind==currentKind">
 
-                    <div >
-                        <div class="col-xs-4"><img class="img-responsive carousel-inner" src="../img/2.jpg"/></div>
+                    <div class="food">
+                        <div class="col-xs-4 p0"><img class="img-responsive" src="../img/2.jpg"/></div>
                         <div class="col-xs-8">
                         <ul>
                         <li>{{g.menuname}}</li>
                         <li>{{g.price}}</li>
                         <li>{{g.introduce}}</li>
+                        <li><button class="btn btn-default" ng-click="addtocart(g.menuid,g.menuname,g.price)">加入购物车</button></li>
                         </ul>
+                        
                         </div>
-                        <button class="btn btn-default" ng-click="addtocart(g.menuid,g.menuname,g.price)">Add To Cart</button>
                     </div>
+                    
 
 
-              </li>
-            </ul> 
+              </div>
+            </div> 
 
 		<div style="position:fixed;width:100%;bottom:0;right:0;">
 
