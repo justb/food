@@ -145,10 +145,40 @@ ul li{
 }
 .food{
   border-top: 1px solid #eeeeee;
-  
+  padding: 20px 0;
   clear: both;
 }
 
 .kind{
 
+}
+
+.right{
+  padding-right: 0;
+  height: 100%;
+  overflow-y: auto;
+} 
+
+.cart{
+  position:fixed;
+  width:100%;
+  bottom:0;
+  right:0;
+  background-color:#fff;
+}
+
+.cart .food-list{
+  border-top: 2px solid #eeeeee;background-color:#fff;
+  padding: 15px 30px;
+}
+
+.cart .total{
+  border-top: 2px solid #eeeeee;
+  padding: 0px 15px;
+  padding-top: 5px;
+  line-height: 34px;
+}
+
+.cart .total button{
+  
 }

@@ -3,7 +3,7 @@
             <div class="col-xs-3 p0">
               <a class="list-group-item text-center" ng-repeat="kind in kinds" ng-click="changeKind(kind.id)">{{kind.name}}</a>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9 right">
               <div  ng-repeat="g in categroys" ng-if="g.kind==currentKind">
 
                     <div class="food">
@@ -24,24 +24,33 @@
               </div>
             </div> 
 
-		<div style="position:fixed;width:100%;bottom:0;right:0;">
+		<div class="cart">
 
-        <div class="collapse" id="collapseExample" >
-        <div style="border-top: 2px solid #0089dc;background-color:#fff;">
-           <div ng-repeat="o in order">
-                {{o.name}}
-                <button class="btn btn-default" ng-click="minus(o)">-</button>
-                {{o.number}}
-                <button class="btn btn-default" ng-click="plus(o)">+</button>
-                {{o.totalprice}}
+            <div class="collapse" id="collapseExample" >
+                <div class="food-list">
+                    <div class="row" ng-repeat="o in order" ng-if="order[0]">
+                        
+                        <div class="col-xs-4">{{o.name}}</div>
+                        <div class="col-xs-5">
+                        <button class="btn btn-default btn-xs" ng-click="minus(o)"><span class="glyphicon glyphicon-minus"></span></button>
+                        {{o.number}}
+                        <button class="btn btn-default btn-xs" ng-click="plus(o)"><span class="glyphicon glyphicon-plus"></span></button>
+                        </div>
+                        <div class="col-xs-3">
+                        {{o.totalprice}}
+                        </div>
+                        
+                    </div>
+                    <div class="row" ng-if="!order[0]">
+                        您的购物车还是空的呢!
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-        <div style="border-top: 2px solid #0089dc;height:36px;" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <label style="position:absolute;bottom:-4px;">total price:</label>
-                <span style="position:absolute;bottom:0px;left:100px;">{{totalprice}}</span>
-            <button ng-click="submitorder()" class="btn btn-default" style="position:absolute;bottom:0px;right:0px;">Submit order</button>
-        </div>
+            <div class="total" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <label>总价 : </label>
+                <span>{{totalprice}}</span>
+                <button ng-click="submitorder()" class="btn btn-default pull-right">提交订单</button>
+            </div>
         </div>
 
 </div>
