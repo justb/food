@@ -25,7 +25,7 @@ module.exports = function (router) {
                     console.log(results);
                     if(results.length>0){
                          var token = jwt.sign({data:results[0]}, 'app.get(superSecret)', {
-                            'expiresIn': 1440 // 设置过期时间
+                            'expiresIn': 60*60*24 // 设置过期时间
                         });
 
                         // json格式返回token
