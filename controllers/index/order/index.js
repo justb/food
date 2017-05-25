@@ -20,6 +20,14 @@ module.exports = function (router) {
             res.json(results);
         });
     });
+    router.post('/addcomment', function (req, res) {
+        orderService().addComment(req.body.comment,req.body.orderid,function (err,results) {
+            if(err){
+                return res.json(err);
+            }
+            res.json(results);
+        });
+    });
 
     router.get('/:user_id', function (req, res) {
         orderService().getOrdersById(req.params.user_id, function(err, results) {
@@ -66,7 +74,7 @@ module.exports = function (router) {
     });
     router.post('/insert', function(req, res) {
         console.log(req.body);
-        orderService().insertOrders(req.body.totalprice,req.body.createdate,req.body.userid, function(err, results) {
+        orderService().insertOrders(req.body.totalprice,req.body.createdate,req.body.userid,req.body.tableno, function(err, results) {
             if (err) {
                 return res.json(err);
             }

@@ -128,7 +128,7 @@ angular.module('supplier-service',[])
             })
         };
 
-        var orderSubmit2=function (order,totalprice,createdate,userid,callback) {
+        var orderSubmit2=function (order,totalprice,createdate,userid,tableno,callback) {
             $http({
                 method:'post',
                 url:'/index/order/insert',
@@ -136,7 +136,8 @@ angular.module('supplier-service',[])
                     order:order,
                     'totalprice':totalprice,
                     'createdate':createdate,
-                    userid:userid
+                    userid:userid,
+                    tableno:tableno,
                 }
             }).success(function (data) {
                 return callback(null,data);
@@ -144,6 +145,22 @@ angular.module('supplier-service',[])
                 return callback(data);
             })
         };
+
+        var addComment=function (comment,orderid,callback) {
+            $http({
+                method:'post',
+                url:'/index/order/addcomment',
+                data: {
+                    comment:comment,
+                    orderid:orderid,
+                }
+            }).success(function (data) {
+                return callback(null,data);
+            }).error(function (data) {
+                return callback(data);
+            })
+        };
+
         var orderSubmit=function (user_id, user_name, supplier_id,supplier_name, good_id,good_name, good_num,good_price, totalprice,createdate,callback) {
             $http({
                 method:'post',
@@ -164,10 +181,11 @@ angular.module('supplier-service',[])
                 return callback(null,data);
             }).error(function (data) {
                 return callback(data);
-            })
+            })      
         };
 
         return{
+            addComment:addComment,
             loadGoods:loadGoods,
             getSuppliers:getSuppliers,
             getCategories:getCategories,

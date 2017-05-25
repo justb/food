@@ -20,9 +20,7 @@ supplierApp.controller('supplierCtrl',function ($scope,$rootScope,$location,$sta
         if (err) {
             //do something
         } else {
-            console.log(123);
             $scope.categroys = data;
-            console.log(data);
         }
     });
         $scope.move = function(id) {
@@ -147,7 +145,7 @@ supplierApp.controller('supplierCtrl',function ($scope,$rootScope,$location,$sta
             });
             console.log($scope.order);
 
-            supplierService.orderSubmit2($scope.order,totalprice,time,$rootScope.user,function (err,data) {
+            supplierService.orderSubmit2($scope.order,totalprice,time,$rootScope.user,$scope.tableno,function (err,data) {
                 if (err) {
                     //do something
 

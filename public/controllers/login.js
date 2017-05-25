@@ -48,6 +48,17 @@ supplierApp.controller('userCtrl',function ($scope,$rootScope, $stateParams,$sta
             }
         })
     }
+
+    $scope.comment=function(){
+        $('#myOrder').modal('hide');
+        supplierService.addComment($scope.comments,$scope.myorder.orderno,function(err,data){
+            if(err){
+
+            }else{
+                alert("添加评论成功！");
+            }
+        })
+    }
    
 // $scope.doLogin = function() {
 //         supplierService.userLogin($scope.phone,$scope.password, function(err, data) {

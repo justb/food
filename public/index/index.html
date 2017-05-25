@@ -46,10 +46,17 @@
                     </div>
                 </div>
             </div>
-            <div class="total" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <div class="total row" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <div class="col-xs-3">
                 <label>总价 : </label>
                 <span>{{totalprice}}</span>
+                </div>
+                <div class="col-xs-5 form-inline">
+                    <input type="number" class="form-control" placeholder="请填写你的桌号" ng-model="tableno"/>
+                </div>
+                <div class="col-xs-4 ">
                 <button ng-click="submitorder()" class="btn btn-default pull-right">提交订单</button>
+                </div>
             </div>
         </div>
 
