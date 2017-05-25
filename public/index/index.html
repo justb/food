@@ -7,7 +7,7 @@
               <div  ng-repeat="g in categroys" ng-if="g.kind==currentKind">
 
                     <div class="food">
-                        <div class="col-xs-4 p0"><img class="img-responsive" src={{g.imgurl}}/></div>
+                        <div class="col-xs-4 p0"><img class="img-responsive" ng-src="{{g.imgurl}}"/></div>
                         <div class="col-xs-8">
                         <ul>
                         <li>{{g.menuname}}</li>
