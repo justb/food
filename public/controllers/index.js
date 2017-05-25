@@ -147,7 +147,7 @@ supplierApp.controller('supplierCtrl',function ($scope,$rootScope,$location,$sta
             });
             console.log($scope.order);
 
-            supplierService.orderSubmit2($scope.order,totalprice,time,function (err,data) {
+            supplierService.orderSubmit2($scope.order,totalprice,time,$rootScope.user,function (err,data) {
                 if (err) {
                     //do something
 

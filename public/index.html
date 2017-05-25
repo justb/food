@@ -59,6 +59,9 @@
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>-->
+                        <li ng-show="$root.user" ng-click="logout()">
+                           <a>登出</a>
+                        </li>
                         <li   ng-show="!$root.user">
                            <a data-toggle="modal" data-target="#register">注册</a>
                         </li>

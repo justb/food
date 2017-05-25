@@ -66,7 +66,7 @@ module.exports = function (router) {
     });
     router.post('/insert', function(req, res) {
         console.log(req.body);
-        orderService().insertOrders(req.body.totalprice,req.body.createdate, function(err, results) {
+        orderService().insertOrders(req.body.totalprice,req.body.createdate,req.body.userid, function(err, results) {
             if (err) {
                 return res.json(err);
             }

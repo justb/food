@@ -33,6 +33,11 @@ supplierApp.controller('userCtrl',function ($scope,$rootScope, $stateParams,$sta
         })
     }
 
+    $scope.logout=function(){
+        localStorage.clear();
+        $rootScope.user=null;
+    }
+
     $scope.myorder=function(){
          supplierService.getOrderByUserId($rootScope.user,function(err,data){
             if(err){

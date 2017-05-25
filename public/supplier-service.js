@@ -128,14 +128,15 @@ angular.module('supplier-service',[])
             })
         };
 
-        var orderSubmit2=function (order,totalprice,createdate,callback) {
+        var orderSubmit2=function (order,totalprice,createdate,userid,callback) {
             $http({
                 method:'post',
                 url:'/index/order/insert',
                 data: {
                     order:order,
                     'totalprice':totalprice,
-                    'createdate':createdate
+                    'createdate':createdate,
+                    userid:userid
                 }
             }).success(function (data) {
                 return callback(null,data);

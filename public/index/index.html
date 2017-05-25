@@ -7,7 +7,7 @@
               <div  ng-repeat="g in categroys" ng-if="g.kind==currentKind">
 
                     <div class="food">
-                        <div class="col-xs-4 p0"><img class="img-responsive" src="../img/2.jpg"/></div>
+                        <div class="col-xs-4 p0"><img class="img-responsive" src={{g.imgurl}}/></div>
                         <div class="col-xs-8">
                         <ul>
                         <li>{{g.menuname}}</li>
@@ -32,9 +32,9 @@
                         
                         <div class="col-xs-5">{{o.name}}</div>
                         <div class="col-xs-5">
-                        <button class="btn btn-default" ng-click="minus(o)"><span class="glyphicon glyphicon-minus"></span></button>
+                        <button class="btn btn-default" ng-click="minus(o)">-</button>
                         {{o.number}}
-                        <button class="btn btn-default" ng-click="plus(o)"><span class="glyphicon glyphicon-plus"></span></button>
+                        <button class="btn btn-default" ng-click="plus(o)">+</button>
                         </div>
                         <div class="col-xs-2">
                         {{o.totalprice}}
