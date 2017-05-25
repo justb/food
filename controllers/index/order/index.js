@@ -22,7 +22,7 @@ module.exports = function (router) {
     });
 
     router.get('/:user_id', function (req, res) {
-        orderService().getOrdersByUserId(req.params.user_id, function(err, results) {
+        orderService().getOrdersById(req.params.user_id, function(err, results) {
             if (err) {
                 return res.json(err);
             }
@@ -73,7 +73,7 @@ module.exports = function (router) {
             res.json('ok');
             console.log(results);
             req.body.order.forEach(function(item){
-                orderService().insertMenus(item.id,results.insertId, function(err, result) {
+                orderService().insertMenus(item.id,item.number,results.insertId, function(err, result) {
                     if (err) {
                         return res.json(err);
                     }

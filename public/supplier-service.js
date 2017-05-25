@@ -97,7 +97,7 @@ angular.module('supplier-service',[])
         var userLogin=function (phone,password,callback) {
             $http({
                 method:'post',
-                url:'/index/login',
+                url:'/index/user/login',
                 data: {
 
                     "phone": phone,
@@ -113,7 +113,7 @@ angular.module('supplier-service',[])
         var userRegister=function (user,callback) {
             $http({
                 method:'post',
-                url:'/index/register',
+                url:'/index/user/register',
                 data: {
                     "username":user.username,
                     "sex":user.sex.name,

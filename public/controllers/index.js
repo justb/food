@@ -143,7 +143,7 @@ supplierApp.controller('supplierCtrl',function ($scope,$rootScope,$location,$sta
                 good_name+=data.name+" ";
                 good_num+=data.number+" ";
                 good_price+=data.price+" ";
-                totalprice+=data.totalprice;
+                totalprice+=parseFloat(data.totalprice);
             });
             console.log($scope.order);
 

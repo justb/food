@@ -3,7 +3,7 @@
  */
 var supplierApp = angular.module('suppliers', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'acxm.ui','supplier-service']);
 
-supplierApp.config(function($stateProvider, $urlRouterProvider) {
+supplierApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     /* Add New States Above */
     $stateProvider
@@ -28,6 +28,9 @@ supplierApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'index/order.html',
         })
         $urlRouterProvider.otherwise('/index');
+        console.log(localStorage.getItem('token'));
+        
+        $httpProvider.interceptors.push('authInterceptor');
 });
 
 
@@ -50,7 +53,10 @@ supplierApp.directive('userInfo',function(){
 });
 
 angular.module('suppliers').run(function($rootScope) {
-
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+            $rootScope.user=localStorage.getItem('user');
+    });
+    // $httpProvider.defaults.headers.common = { 'access_token' : localStorage.getItem('token') };
     $rootScope.safeApply = function(fn) {
         var phase = $rootScope.$$phase;
         if (phase === '$apply' || phase === '$digest') {
@@ -63,3 +69,19 @@ angular.module('suppliers').run(function($rootScope) {
     };
 
 });
+
+supplierApp.factory('authInterceptor', function($rootScope){
+    return {
+        request: function(config){
+            config.headers = config.headers || {};
+            if(localStorage.getItem('token')){
+                config.headers.access_token = localStorage.getItem('token');
+            }
+            return config;
+        },
+        responseError: function(response){
+            // ...
+        }
+    };
+})
+

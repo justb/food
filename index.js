@@ -4,6 +4,7 @@ var express = require('express');
 var kraken = require('kraken-js');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+var token=require("./token");
 
 var options, app;
 
@@ -37,7 +38,7 @@ app.use(session({
 
 app.use(express.static('public'));
 
-
+app.get('/index/order/:user_id',token);
 
 app.on('start', function () {
     console.log('Application ready to serve requests.');

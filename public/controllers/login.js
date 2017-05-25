@@ -1,6 +1,8 @@
 supplierApp.controller('userCtrl',function ($scope,$rootScope, $stateParams,$state, supplierService) {
     $scope.user={};
     $scope.sexs=[{value:"男",name:"man"},{value:"女",name:"woman"}];
+    $scope.userid=null;
+    $scope.password=null;
     $scope.register=function(){
         console.log($scope.user);
     }
@@ -19,11 +21,25 @@ supplierApp.controller('userCtrl',function ($scope,$rootScope, $stateParams,$sta
         })
     }
     $scope.login=function(){
+        console.log($scope.userid,$scope.password);
          supplierService.userLogin($scope.userid,$scope.password,function(err,data){
             if(err){
 
             }else{
+                localStorage.setItem('token',data.token);
+                localStorage.setItem('user',data.userid);
+                $rootScope.user=data.userid;
+            }
+        })
+    }
 
+    $scope.myorder=function(){
+         supplierService.getOrderByUserId($rootScope.user,function(err,data){
+            if(err){
+
+            }else{
+                $scope.myorder=data.base;
+                $scope.myorder.detail=data.detail;
             }
         })
     }
