@@ -38,13 +38,15 @@ supplierApp.controller('userCtrl',function ($scope,$rootScope, $stateParams,$sta
         $rootScope.user=null;
     }
 
-    $scope.myorder=function(){
+    $scope.myselforder=function(){
+        console.log($rootScope.user);
          supplierService.getOrderByUserId($rootScope.user,function(err,data){
             if(err){
 
             }else{
                 $scope.myorder=data.base;
                 $scope.myorder.detail=data.detail;
+                // $scope.$apply();
             }
         })
     }
