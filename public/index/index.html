@@ -47,11 +47,11 @@
                 </div>
             <!--</div>-->
             <div class="total row" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-init="display=false" ng-click="display=!display">
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                 <label>总价 : </label>
-                <span>{{totalprice}}</span>
+                <span>{{totalprice | number : 1}}</span>
                 </div>
-                <div class="col-xs-5 form-inline">
+                <div class="col-xs-4 form-inline">
                     <input type="number" class="form-control" placeholder="请填写你的桌号" ng-model="tableno"/>
                 </div>
                 <div class="col-xs-4 ">

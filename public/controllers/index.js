@@ -51,7 +51,7 @@ supplierApp.controller('supplierCtrl',function ($scope,$rootScope,$location,$sta
         $scope.selectgoods={id,name,price}
         $('#select_Modal').modal('show');
     };
-    $scope.totalprice=0;
+    $scope.totalprice=0.0;
     $scope.order=[];
     if($rootScope.order==null){
         $scope.order=[];
